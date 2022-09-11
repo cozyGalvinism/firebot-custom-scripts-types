@@ -134,7 +134,7 @@ export type ScriptModules = {
     [x: string]: unknown;
 };
 
-type RunRequest<P extends Record<string, unknown>> = {
+export type RunRequest<P extends Record<string, unknown> = {}> = {
     parameters: P;
     modules: ScriptModules;
     firebot: {

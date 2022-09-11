@@ -7,7 +7,7 @@ export type EventFilter = {
         eventId: string;
     }>;
     comparisonTypes: string[];
-    valueType: "text" | "preset";
+    valueType: "text" | "preset" | "number";
     presetValues(...args: any[]): Promise<any[]>;
     predicate(
         filterSettings: { comparisonType: string; value: any },
@@ -17,6 +17,8 @@ export type EventFilter = {
             eventMeta: Record<string, any>;
         }
     ): Promise<boolean>;
+    valueIsStillValid?: (filterSettings: { comparisonType: string; value: any }, ...args: any[]) => boolean;
+    getSelectedValueDisplay?: (filterSettings: { comparisonType: string; value: any }, ...args: any[]) => string;
 };
 
 export type EventFilterManager = {

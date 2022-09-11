@@ -6,7 +6,7 @@ export type FrontendCommunicator = {
     ): void;
     onAsync<ExpectedArgs extends Array<any> = [], ReturnPayload = void>(
         eventName: string,
-        callback: (...args: ExpectedArgs[]) => Promise<ReturnPayload>
+        callback: (...args: ExpectedArgs) => Promise<ReturnPayload>
     ): void;
     fireEventAsync<ReturnPayload = void>(
         eventName: string,
